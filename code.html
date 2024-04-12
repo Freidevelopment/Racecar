@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Portal-Seeker: A coding Challenge</title>
+    <title>Racecar: A coding Challenge</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -42,7 +42,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-xxl">
                 <a class="navbar-brand" href="#"> <img src="/img/customLogos/logo_only_dark_background.svg" height="30">
-                    Portal-Seeker</a>
+                    Racecar</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
                     aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -140,47 +140,47 @@
                 <h5><code>getValues()</code></h5>
                 <p>
                     The <code>getValues</code> function gets the
-                    text from the input element and than sends the 
+                    text from the input element and than sends the
                     input to the function <code>inspectCharacters</code>.
                     When the input is received back from <code>inspectCharacters</code>
                     it is than sent to the function <code>checkForPalindrome</code>.
                     Once the inspection results are received from <code>checkForPalindrome</code>
-                    it is sent to the function <code>displayResults</code> so that 
+                    it is sent to the function <code>displayResults</code> so that
                     the information can be displayed.
                 </p>
                 <h5><code>inspectCharacters()</code></h5>
                 <p>
-                    This function takes the input received from 
-                    <code>getValues</code> and lowercases all of the 
-                    capital letters in the string. Than using a 
-                    regexp and regex replace all special characters and 
+                    This function takes the input received from
+                    <code>getValues</code> and lowercases all of the
+                    capital letters in the string. Than using a
+                    regexp and regex replace all special characters and
                     spaces within the String. I than send that information
                     back to <code>getValues</code>.
                 </p>
                 <h5><code>checkForPalindrome()</code></h5>
                 <p>
                     The <code>checkForPalindrome</code> function
-                    receives the inspected string and than using a 
+                    receives the inspected string and than using a
                     for loop and an if else statement
-                    check each character in the array and place 
-                    it into a new scoped variable. I than check 
-                    the scoped variable to the string that 
+                    check each character in the array and place
+                    it into a new scoped variable. I than check
+                    the scoped variable to the string that
                     was sent as a parameter to <code>checkForPalindrome</code>,
                     from <code>getValues</code>. If they are the same,
-                    they are sent back as a correct Palindrome. 
-                    If they are not, they are sent back as an 
+                    they are sent back as a correct Palindrome.
+                    If they are not, they are sent back as an
                     incorrect Palindrome.
                 </p>
                 <h5><code>displayResults()</code></h5>
                 <p>
                     The <code>displayResults</code> function
-                    receives the inspected string and 
+                    receives the inspected string and
                     the result of the function <code>checkForPalindrome</code>.
-                    Using this I use an if else if statement to check 
-                    the answer from <code>checkForPalindrome</code> 
-                    and depending on its answer display a 
-                    correct alert or an error message letting 
-                    the user know that it is or is not a 
+                    Using this I use an if else if statement to check
+                    the answer from <code>checkForPalindrome</code>
+                    and depending on its answer display a
+                    correct alert or an error message letting
+                    the user know that it is or is not a
                     Palindrome.
                 </p>
             </div>
