@@ -73,29 +73,115 @@
             <div class="col-12 col-lg-8">
                 <pre class="line-numbers">
                 <code class="language-js">
-                    function displayMessage() {
-                        let inputBox = document.getElementById('message');
-                        let message = inputBox.value;
-                    
-                        Swal.fire(
-                            {
-                                title: "Portal-Seeker",
-                                text: message,
-                                icon: "success",
-                                backdrop: false
-                            });                    
+                    // get the string from the user
+                    function getValues() {
+                        let inputString = document.getElementById('inputString').value;
+                        let replaceCharacters = '';
+                        let inspectedString = inspectCharacters(inputString, replaceCharacters);
+                        
+                        let stringResult = checkForPalindrome(inspectedString);
+
+                        displayResults(stringResult, inspectedString);
+                    }
+
+                    // Inspects and replaces any special characters or spaces in inputString
+                    function inspectCharacters(inputString, replaceCharacters) {
+                        let lowerCase = inputString.toLowerCase();
+                        return lowerCase.replaceAll(/[^a-zA-Z0-9]/g, replaceCharacters);
+                    }
+                    // Check whether a string is a Palindrome or not
+                    function checkForPalindrome(inspectedString) {
+                        let result = '';
+                        let inspect = '';
+
+                        for(let index = inspectedString.length - 1; index >= 0; index-- ) {
+                        inspect += inspectedString[index];
+                        }
+
+                        if (inspect == inspectedString) {
+                            result = "isPalindrome";
+                        } else {
+                        result = 'notPalindrome';
+                        }
+                        
+                        return result;
+
+                    }
+
+                    // Display the results from checkForPalindrome to the user
+                    function displayResults(stringResult, inspectedString) {
+                        
+                        if(stringResult == 'isPalindrome') {
+                        // display a corecct message
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Nice!',
+                            text: `Yes ${inspectedString} is a Palindrome`,
+                            background: 'var(--njf-theme-100)',
+                            backdrop: false
+                        });
+                        } else if(stringResult == 'notPalindrome') {
+                        // display a false message
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Sorry!',
+                            text: `No, unfortunately ${inspectedString} is not a Palindrome`,
+                            background: 'var(--njf-theme-150)',
+                            backdrop: false
+                        });
+                        }
                     }
                 </code>
             </pre>
             </div>
             <!-- The code's explanation -->
             <div class="col-12 col-lg-4">
-                <p>The code is structured in one function.</p>
-                <h5><code>displayMessage()</code></h5>
+                <p>The code is structured into four functions.</p>
+                <h5><code>getValues()</code></h5>
                 <p>
-                    The <code>displayMessage</code> function gets the
-                    text from the input element and displays it in
-                    a Sweet Alert popup.
+                    The <code>getValues</code> function gets the
+                    text from the input element and than sends the 
+                    input to the function <code>inspectCharacters</code>.
+                    When the input is received back from <code>inspectCharacters</code>
+                    it is than sent to the function <code>checkForPalindrome</code>.
+                    Once the inspection results are received from <code>checkForPalindrome</code>
+                    it is sent to the function <code>displayResults</code> so that 
+                    the information can be displayed.
+                </p>
+                <h5><code>inspectCharacters()</code></h5>
+                <p>
+                    This function takes the input received from 
+                    <code>getValues</code> and lowercases all of the 
+                    capital letters in the string. Than using a 
+                    regexp and regex replace all special characters and 
+                    spaces within the String. I than send that information
+                    back to <code>getValues</code>.
+                </p>
+                <h5><code>checkForPalindrome()</code></h5>
+                <p>
+                    The <code>checkForPalindrome</code> function
+                    receives the inspected string and than using a 
+                    for loop and an if else statement
+                    check each character in the array and place 
+                    it into a new scoped variable. I than check 
+                    the scoped variable to the string that 
+                    was sent as a parameter to <code>checkForPalindrome</code>,
+                    from <code>getValues</code>. If they are the same,
+                    they are sent back as a correct Palindrome. 
+                    If they are not, they are sent back as an 
+                    incorrect Palindrome.
+                </p>
+                <h5><code>displayResults()</code></h5>
+                <p>
+                    The <code>displayResults</code> function
+                    receives the inspected string and 
+                    the result of the function <code>checkForPalindrome</code>.
+                    Using this I use an if else if statement to check 
+                    the answer from <code>checkForPalindrome</code> 
+                    and depending on its answer display a 
+                    correct alert or an error message letting 
+                    the user know that it is or is not a 
+                    Palindrome.
                 </p>
             </div>
         </div>

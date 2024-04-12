@@ -6,12 +6,13 @@ function getValues() {
     
     let stringResult = checkForPalindrome(inspectedString);
 
-    displayResults(stringResult, inputString);
+    displayResults(stringResult, inspectedString);
 }
 
 // Inspects and replaces any special characters or spaces in inputString
 function inspectCharacters(inputString, replaceCharacters) {
-    return inputString.replaceAll(/[^a-zA-Z0-9]/gi, replaceCharacters);
+    let lowerCase = inputString.toLowerCase();
+    return lowerCase.replaceAll(/[^a-zA-Z0-9]/g, replaceCharacters);
 }
 // Check whether a string is a Palindrome or not
 function checkForPalindrome(inspectedString) {
@@ -33,22 +34,24 @@ function checkForPalindrome(inspectedString) {
 }
 
 // Display the results from checkForPalindrome to the user
-function displayResults(stringResult, inputString) {
+function displayResults(stringResult, inspectedString) {
     
     if(stringResult == 'isPalindrome') {
       // display a corecct message
       Swal.fire({
         icon: 'success',
         title: 'Nice!',
-        text: `Yes ${inputString} is a Palindrome`,
+        text: `Yes ${inspectedString} is a Palindrome`,
+        background: 'var(--njf-theme-100)',
         backdrop: false
     });
     } else if(stringResult == 'notPalindrome') {
-      // display a corecct message
+      // display a false message
       Swal.fire({
         icon: 'error',
         title: 'Sorry!',
-        text: `No, unfortunately ${inputString} is not a Palindrome`,
+        text: `No, unfortunately ${inspectedString} is not a Palindrome`,
+        background: 'var(--njf-theme-150)',
         backdrop: false
     });
     }
