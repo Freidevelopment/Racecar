@@ -12,7 +12,7 @@ function getValues() {
 // Inspects and replaces any special characters or spaces in inputString
 function inspectCharacters(inputString, replaceCharacters) {
     let lowerCase = inputString.toLowerCase();
-    return lowerCase.replaceAll(/[^a-zA-Z0-9]/g, replaceCharacters);
+    return lowerCase.replaceAll(/[^a-z0-9]/g, replaceCharacters);
 }
 // Check whether a string is a Palindrome or not
 function checkForPalindrome(inspectedString) {
